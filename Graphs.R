@@ -1,4 +1,5 @@
-boxplot(Diff ~ Kat, full.df) # Boxplot
+par(las = 2)
+boxplot(Diff ~ Kat, full.df, xlab = "") # Boxplot
 
 full.pos <- full.df[full.df$Diff <= 0, c("Kat", "Diff")] # Hol csökkent?
 
