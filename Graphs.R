@@ -12,8 +12,7 @@ full.nov <- full.df[full.df$Diff > 0, c("Kat", "Diff")] # Hol nőtt?
 sumnov.df <- as.data.frame(tapply(full.nov[,2], full.nov[,1], mean)) # Átlagos növekedés
 sumnov.df <- cbind(sumnov.df, as.data.frame(summary(full.nov[,1]))) # Hely szám
 names(sumnov.df) <- c("Mean", "Count")
-
-sumall.df <- rbind(sum.df, sumnov.df)
+sumnov.df$Kat <- row.names(sumnov.df)
 
 ## Variable column width
 ## https://www.r-graph-gallery.com/81-barplot-with-variable-width.html
