@@ -4,6 +4,9 @@ boxplot(Diff ~ Kat, full.df, xlab = "") # Boxplot
 allbox <- ggplot(full.df, aes(x=Kat, y=Diff)) + geom_boxplot()
 allbox
 
+allscatter <- ggplot(full.df, aes(x=Kat, y=Diff)) + geom_point()
+allscatter
+
 full.pos <- full.df[full.df$Diff <= 0, c("Kat", "Diff")] # Hol csökkent?
 
 sum.df <- as.data.frame(tapply(full.pos[,2], full.pos[,1], mean)) # Átlagos csökkenés
