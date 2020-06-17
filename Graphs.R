@@ -22,6 +22,9 @@ library(ggplot2)
 # Calculate the future positions on the x axis of each bar (left border, central position, right border)
 sum.df$right <- cumsum(sum.df$Count) + 5*c(0:(nrow(sum.df)-1))
 sum.df$left <- sum.df$right - sum.df$Count
+sumnov.df <- cbind(sumnov.df, right=sum.df$left+sumnov.df$Count, left=sum.df$left)
+sumnov.df <- sumnov.df[!is.na(sumnov.df$Mean),]
+sumall.df <- rbind(sum.df, sumnov.df)
 
 # Plot
 ggplot(sum.df, aes(ymin = 0)) +
