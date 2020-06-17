@@ -1,10 +1,14 @@
 par(las = 2)
 boxplot(Diff ~ Kat, full.df, xlab = "") # Boxplot
 
-allbox <- ggplot(full.df, aes(x=Kat, y=Diff)) + geom_boxplot()
+allbox <- ggplot(full.df, aes(x=Kat, y=Diff)) + geom_boxplot() +
+    theme(axis.text.x = element_text(face="bold", color="#993333",
+                           size=14, angle=90))
 allbox
 
-allscatter <- ggplot(full.df, aes(x=Kat, y=Diff)) + geom_point()
+allscatter <- ggplot(full.df, aes(x=Kat, y=Diff)) + geom_point() +
+    theme(axis.text.x = element_text(face="bold", color="#993333",
+                           size=14, angle=90))
 allscatter
 
 full.pos <- full.df[full.df$Diff <= 0, c("Kat", "Diff")] # Hol csökkent?
