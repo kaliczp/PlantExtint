@@ -7,7 +7,8 @@ ttcore <- ttcore[-grep("Nyirád", ttcore[,1]),] # Üres NyirádX kiszedése
 tthelyek <- which(rowSums(ttcore[,2:3] == "") == 2) # Hol van csak kategória
 tthelyek.nam <- as.character(ttcore[tthelyek, 1]) # Kategória nevek
 hany.hely <- diff(c(tthelyek, nrow(ttcore)+1)) # Elem a kategóriában
-full.df <- cbind(rep(tthelyek.nam, hany.hely), ttcore) # Oszlop kategóriákkal
+kat.fac <- factor(rep(tthelyek.nam, hany.hely), levels = tthelyek.nam)
+full.df <- cbind(kat.fac, ttcore) # Oszlop kategóriákkal
 full.df <- full.df[-tthelyek, ] # Csak nev sorok törlése
 names(full.df) <- c("Kat", "Hely", "Old", "New") # Oszlop nevek
 
