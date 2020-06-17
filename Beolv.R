@@ -15,10 +15,3 @@ names(full.df) <- c("Kat", "Hely", "Old", "New") # Oszlop nevek
 full.df$Diff <- as.numeric(as.character(full.df$New)) -
     as.numeric(as.character(full.df$Old)) # Különbség képzés
 full.df <- full.df[!is.na(full.df$Diff),] # A ki nem számolt különbségek törlése
-
-full.pos <- full.df[full.df$Diff <= 0, c("Kat", "Diff")] # Hol csökkent?
-
-sum.df <- as.data.frame(tapply(full.pos[,2], full.pos[,1], mean)) # Átlagos csökkenés
-sum.df <- cbind(sum.df, as.data.frame(summary(full.pos[,1])))
-names(sum.df) <- c("Mean", "Count")
-
