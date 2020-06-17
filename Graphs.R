@@ -27,10 +27,11 @@ sumnov.df <- sumnov.df[!is.na(sumnov.df$Mean),]
 sumall.df <- rbind(sum.df, sumnov.df)
 
 # Plot
-ggplot(sum.df, aes(ymin = 0)) +
+sumplot <- ggplot(sumall.df, aes(ymin = 0)) +
     geom_rect(aes(xmin = left, xmax = right, ymax = Mean, colour = Kat, fill = Kat)) +
     ylab("Mean") +
     theme(legend.position="none") +
     scale_x_continuous("", breaks = sum.df$left, labels = sum.df$Kat) +
     theme(axis.text.x = element_text(face="bold", color="#993333",
                            size=14, angle=90))
+sumplot
