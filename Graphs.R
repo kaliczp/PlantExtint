@@ -6,7 +6,7 @@ allbox <- ggplot(full.df, aes(x=Kat, y=Diff)) + geom_boxplot() +
                            size=14, angle=90))
 allbox
 
-allscatter <- ggplot(full.df, aes(x=Kat, y=Diff)) + geom_point() +
+allscatter <- ggplot(full.df, aes(x=Kat, y=Diff)) + geom_jitter(width = .05, alpha=1/2) +
     theme(axis.text.x = element_text(face="bold", color="#993333",
                            size=14, angle=90))
 allscatter
